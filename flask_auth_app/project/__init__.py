@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flask import Flask
+from flask import Flask, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
