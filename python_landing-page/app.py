@@ -17,11 +17,19 @@ from models.user_model import User
 app = Flask(__name__)
 
 
-@app.route('/')
+# @app.route('/')
+# def index():
+#     return render_template('index.html', url_for=url_for)
+
+@app.route('/home')
 def index():
     return render_template('index.html', url_for=url_for)
 
-@app.route('/register', method)
+@app.route('/register')
+def display_reg_form():
+    return render_template('registration-form.html')
+
+@app.route('/register')
 def register():
     try:
         email='test@example.com'
@@ -39,3 +47,9 @@ def register():
     finally:
         storage.close()
     return render_template('index.html', url_for=url_for)
+
+if __name__ == "__main__":
+    app.run(
+        debug=True, passthrough_errors=True,
+        use_debugger=False, use_reloader=False
+)
