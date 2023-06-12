@@ -29,6 +29,10 @@ def index():
 def display_reg_form():
     return render_template('registration-form.html')
 
+@app.route('/product_page')
+def display_product():
+    return render_template('product_page.html')
+
 @app.route('/register')
 def register():
     try:
@@ -49,7 +53,5 @@ def register():
     return render_template('index.html', url_for=url_for)
 
 if __name__ == "__main__":
-    app.run(
-        debug=True, passthrough_errors=True,
-        use_debugger=False, use_reloader=False
+    app.run(use_reload=True 
 )
