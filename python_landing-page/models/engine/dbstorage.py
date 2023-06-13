@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import os
+from dotenv import load_dotenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -16,6 +18,7 @@ from models.medical_history import MedicalHistory
 from models.medication_model import Medication
 from models.previous_doctor import PreviousDoctor
 
+load_dotenv()
 
 class DBStorage:
 
@@ -23,10 +26,10 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        user = "root"
-        password = "123456"
-        host = "localhost"
-        database = "mediapp"
+        host=os.getenv('HOST')
+        user=   os.getenv('USERNAME')
+        password=os.getenv('PASSWORD')
+        database=os.getenv('DATABASE')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                         format(user,
                                             password,
