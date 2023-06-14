@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-from flask import Flask, render_template, url_for
+import os
+from dotenv import load_dotenv
+from flask import Flask, render_template, url_for, Blueprint
 from models import storage
 from models.admin_model import Admin
 from models.appointments_model import Appointment
@@ -13,25 +14,37 @@ from models.medication_model import Medication
 from models.patient_model import Patient
 from models.previous_doctor import PreviousDoctor
 from models.user_model import User
+from app_views import app_views
+from main import main
+
+load_dotenv()
 
 app = Flask(__name__)
 
+# Create the app_views blueprint
+app_views = Blueprint('app_views', __name__)
+app.register_blueprint(app_views)
 
-@app.route('/')
-def index():
-    return render_template('index.html', url_for=url_for)
+# Create the main blueprint
+main = Blueprint('main', __name__)
+app.register_blueprint(main)
 
-# @app.route('/home')
+
+# @app.route('/')
 # def index():
 #     return render_template('index.html', url_for=url_for)
 
-@app.route('/register')
-def display_reg_form():
-    return render_template('registration-form.html')
+# @app.route('/register')
+# def display_reg_form():
+#     return render_template('registration-form.html')
 
-@app.route('/product_page')
-def display_product():
-    return render_template('product_page.html')
+# @app.route('/product_page')
+# def display_product():
+#     return render_template('product_page.html')
+
+# @app.route('/doctor')
+# def doctor():
+#     return render_template('doc_dashboard.html')
 
 @app.route('/register')
 def register():
@@ -53,5 +66,5 @@ def register():
     return render_template('index.html', url_for=url_for)
 
 if __name__ == "__main__":
-    app.run(use_reload=True 
+    app.run(use_reload=True
 )

@@ -46,4 +46,5 @@ window.addEventListener('DOMContentLoaded', event => {
 		$('#datetimepicker1').datepicker();
 	});
 
+   
 });

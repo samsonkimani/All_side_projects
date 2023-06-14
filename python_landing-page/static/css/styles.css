@@ -11580,3 +11580,46 @@ font-weight: 700;
 margin-bottom: 25px;
 font-size: 22px;
 }
+
+.doctors-section {
+    margin-top: 0;
+}
+
+.section-items {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 10px;
+    margin-top: -40px;
+}
+
+.right-section{
+    width: 100%;
+    border: 2px solid #79E3FB;
+    border-radius: 10px;
+}
+
+.left-section {
+    border: 2px solid #79E3FB;
+    border-radius: 10px;
+}
+
+.doctors-navigation li a{
+    text-decoration: none;
+}
+
+.doctors-navigation li{
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+.doctors-navigation{
+    list-style-type: none;
+    /* text-decoration: none; */
+    font-size: 20px;
+    width: 100%;
+}
+
+.doctors-navigation hr {
+    height: 2px;
+    background-color: #79E3FB;
+    text-align: center;
+}
