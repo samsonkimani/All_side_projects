@@ -21,50 +21,13 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Create the app_views blueprint
-app_views = Blueprint('app_views', __name__)
+# Registering the app_views blueprint
+
 app.register_blueprint(app_views)
 
-# Create the main blueprint
-main = Blueprint('main', __name__)
+# Registering the main blueprint
+
 app.register_blueprint(main)
 
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html', url_for=url_for)
-
-# @app.route('/register')
-# def display_reg_form():
-#     return render_template('registration-form.html')
-
-# @app.route('/product_page')
-# def display_product():
-#     return render_template('product_page.html')
-
-# @app.route('/doctor')
-# def doctor():
-#     return render_template('doc_dashboard.html')
-
-@app.route('/register')
-def register():
-    try:
-        email='test@example.com'
-        first_name='John'
-        last_name='Doe'
-        password='password'
-        role='doctor'
-
-        user = User(email=email, first_name=first_name, last_name=last_name, password=password, role=role)
-        storage.new(user)
-        storage.save()
-    except Exception as e:
-        print(f"Error: {str(e)}")
-
-    finally:
-        storage.close()
-    return render_template('index.html', url_for=url_for)
-
 if __name__ == "__main__":
-    app.run(use_reload=True
-)
+    app.run(debug=True)

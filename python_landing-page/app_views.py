@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template, url_for
 
 app_views = Blueprint('app_views', __name__)
 
