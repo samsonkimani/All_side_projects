@@ -35,7 +35,7 @@ class DBStorage:
         # user='root'
         # database='mediapp'
         # password='123456'
-        connect_args={
+        ssl_args={
             "ssl": {
                 "ca": "/home/gord/client-ssl/ca.pem",
                 "cert": "/home/gord/client-ssl/client-cert.pem",
