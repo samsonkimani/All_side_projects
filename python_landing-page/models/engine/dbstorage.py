@@ -35,26 +35,20 @@ class DBStorage:
         # user='root'
         # database='mediapp'
         # password='123456'
-        ssl_args={
-            "ssl": {
-                "ca": "/home/gord/client-ssl/ca.pem",
-                "cert": "/home/gord/client-ssl/client-cert.pem",
-                "key": "/home/gord/client-ssl/client-key.pem"
-            }
+
+
+
+        connection_args = {
+            "ssl" : {
+                "ca": "/etc/ssl/cert.pem"
+                }
         }
+        ca = connection_args['ssl']['ca']
+        connection = "mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}".format(user, password, host, database, ca)
 
-        ca=ssl_args["ssl"]["ca"],
-        cert=ssl_args["ssl"]["cert"],
-        key=ssl_args["ssl"]["key"]
+        self.__engine = create_engine(connection)
 
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}&ssl_cert={}&ssl_key={}'.
-                                        format(user,
-                                            password,
-                                            host,
-                                            database,
-                                            ca,
-                                            cert,
-                                            key))
+
     def new(self, obj):
         self.__session.add(obj)
 
