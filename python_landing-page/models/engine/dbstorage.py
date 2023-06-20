@@ -30,15 +30,31 @@ class DBStorage:
         user=os.getenv('NAME')
         password=os.getenv('PASSWORD')
         database=os.getenv('DATABASE')
+
         # host='localhost'
         # user='root'
         # database='mediapp'
         # password='123456'
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
+        connect_args={
+            "ssl": {
+                "ca": "/home/gord/client-ssl/ca.pem",
+                "cert": "/home/gord/client-ssl/client-cert.pem",
+                "key": "/home/gord/client-ssl/client-key.pem"
+            }
+        }
+
+        ca=ssl_args["ssl"]["ca"],
+        cert=ssl_args["ssl"]["cert"],
+        key=ssl_args["ssl"]["key"]
+
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}&ssl_cert={}&ssl_key={}'.
                                         format(user,
                                             password,
                                             host,
-                                            database))
+                                            database,
+                                            ca,
+                                            cert,
+                                            key))
     def new(self, obj):
         self.__session.add(obj)
 
