@@ -27,7 +27,7 @@ class DBStorage:
 
     def __init__(self):
         host=os.getenv('HOST')
-        user=os.getenv('USER')
+        user=os.getenv('NAME')
         password=os.getenv('PASSWORD')
         database=os.getenv('DATABASE')
         # host='localhost'
