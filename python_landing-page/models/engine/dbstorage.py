@@ -5,7 +5,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 import models
-
+import MySQLdb
 from models.basemodel import Base, BaseModel
 from models.user_model import User
 from models.admin_model import Admin
@@ -38,13 +38,25 @@ class DBStorage:
 
 
 
-        connection_args = {
-            "ssl" : {
-                "ca": "/etc/ssl/cert.pem"
-                }
+        # connection_args = {
+        #     "ssl" : {
+        #         "ca": "/etc/ssl/cert.pem"
+        #         }
+        # }
+        # ca = connection_args['ssl']['ca']
+        # connection = "mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}".format(user, password, host, database, ca)
+
+        connection = MySQLdb.connect(
+        host= os.getenv("HOST"),
+        user=os.getenv("NAME"),
+        passwd= os.getenv("PASSWORD"),
+        db= os.getenv("DATABASE"),
+        autocommit = True,
+        ssl_mode = "VERIFY_IDENTITY",
+        ssl      = {
+            "ca": "/etc/ssl/cert.pem"
         }
-        ca = connection_args['ssl']['ca']
-        connection = "mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}".format(user, password, host, database, ca)
+        )
 
         self.__engine = create_engine(connection)
 
