@@ -26,14 +26,14 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        # host=os.getenv('HOST')
-        # user=os.getenv('USER')
-        # password=os.getenv('PASSWORD')
-        # database=os.getenv('DATABASE')
-        host='localhost'
-        user='root'
-        database='mediapp'
-        password='123456'
+        host=os.getenv('HOST')
+        user=os.getenv('USER')
+        password=os.getenv('PASSWORD')
+        database=os.getenv('DATABASE')
+        # host='localhost'
+        # user='root'
+        # database='mediapp'
+        # password='123456'
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                         format(user,
                                             password,
