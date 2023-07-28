@@ -72,6 +72,9 @@ function App() {
           </div>
         </div>
       </div>
+      <div className='ownership'>
+        <p>website by Alx students</p>
+      </div>
     </div>
   );
 };
