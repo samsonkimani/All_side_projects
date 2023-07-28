@@ -1,11 +1,8 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* #root {
 
-.logo {
+} */
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -39,4 +36,130 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+/* Main Container */
+.main-container {
+  width: 100%;
+  background-image: url(https://www.alxafrica.com/wp-content/uploads/2023/04/hero-ALX.png);
+  background-repeat: no-repeat; /* Avoid background image repetition */
+  background-size: cover; /* Make the background image cover the container */
+  background-position: center; /* Center the background image */
+  height: 100vh;
+  /* margin: 0 auto; */
+  overflow-x: hidden; /* Hide horizontal scrolls */
+  overflow-y: scroll; /* Allow vertical scrolls always */
+  margin: 0;
+  padding: 0;
+
+}
+
+/* ALX Logo and Text Section */
+.logo-section {
+  padding: 20px;
+}
+
+/* ALX Logo */
+.alx-logo {
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+}
+
+/* Text 'Power Your Future in Tech' */
+.power-your-future {
+  color: white;
+  font-size: 1.6em;
+  width: 30%;
+}
+
+/* Party Text */
+.party-text {
+  padding: 0em 1.3em 0em 1.3em;
+  /* text-align: center; */
+  color: white;
+}
+
+/* Random Quote Card */
+.quote-card {
+  padding: 0.5em 1.3em 0 1.3em;
+  text-align: center;
+  position: relative;
+  width: 50%;
+  font-size: 2.7em;
+  border-radius: 5px;
+  height: 2.7em;
+}
+
+.quote-card .card {
+  background-color: #0b4b6f; /* Faded background for card */
+}
+
+/* Responsive Styling */
+@media (max-width: 576px) {
+  .power-your-future {
+    width: 100%;
+  }
+}
+
+.alx-ihub-party{
+  padding: 0px 50px 0px 50px;
+  color: white; /* Neon Pink color (you can choose your own color) */
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase the text */
+  letter-spacing: 4px; /* Add some letter spacing for a modern touch */
+  text-shadow: 2px 2px 4px rgba(81, 182, 61, 0.979);
+  animation: pulsate 2s infinite;
+
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .power-your-future {
+    font-size: 1.3em; /* Reduce font size for small devices */
+  }
+
+  .alx-ihub-party {
+    font-size: 2em; /* Adjust font size for small devices */
+    padding-bottom: 0.5em;
+  }
+
+  /* Adjust padding and font size for quote card on small devices */
+  .quote-card {
+    padding: 0.5em 0em;
+    font-size: 2.5em;
+    width: 100%;
+  }
+
+  .quote-card .card {
+    padding: 0.2em;
+    background-color: rgba(0, 0, 255, 0); /* Faded background for card */
+  }
+
+  /* Reduce ALX logo size for small devices */
+  .alx-logo {
+    width: 100px;
+  }
+}
+
+/* Adjust background image size for small devices */
+@media (max-width: 576px) {
+  .main-container {
+    /* background-size: contain; Adjust background size for small devices */
+    background-color: black;
+  }
 }

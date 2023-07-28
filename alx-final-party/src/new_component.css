@@ -1,0 +1,92 @@
+/* new_component.css */
+
+  /* Main Container */
+  .main-container {
+    width: 100%;
+    background-image: url(https://www.alxafrica.com/wp-content/uploads/2023/04/hero-ALX.png);
+    background-repeat: no-repeat; /* Avoid background image repetition */
+    background-size: cover; /* Make the background image cover the container */
+    background-position: center; /* Center the background image */
+    height: 100vh;
+    overflow-x: hidden; /* Hide horizontal scrolls */
+    overflow-y: scroll; /* Allow vertical scrolls always */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ALX Logo and Text Section */
+  .logo-section {
+    padding: 20px;
+  }
+
+  .logo-section img {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+  }
+
+  /* Text 'Power Your Future in Tech' */
+  .power-your-future {
+    color: white;
+    font-size: 1.6em;
+    width: 30%;
+  }
+
+  /* Party Text */
+  .party-text {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .alx-ihub-party {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(255, 0, 255, 0.8);
+    animation: pulsate 2s infinite;
+  }
+
+  /* Random Quote Card */
+  .quote-card {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .quote-card .card {
+    background-color: #0b4b6f;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  /* Card Body (Quote) */
+  .quote-card .card .card-body {
+    font-size: 32px;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .power-your-future {
+      font-size: 1.2em;
+    }
+
+    .alx-ihub-party {
+      font-size: 24px;
+    }
+
+    .quote-card .card .card-body {
+      font-size: 24px;
+    }
+
+    .logo-section img {
+      width: 100px;
+    }
+  }
+
+  /* Adjust background image size for small devices */
+  @media (max-width: 576px) {
+    .main-container {
+      background-size: contain;
+    }
+  }

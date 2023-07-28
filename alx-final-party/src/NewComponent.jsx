@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'
+import './new_component.css';
+
 
 const namesArray = ['"The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela',
   '"The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt',
@@ -8,8 +9,7 @@ const namesArray = ['"The greatest glory in living lies not in never falling, bu
   '"The way to get started is to quit talking and begin doing." - Walt Disney',
   '"It is during our darkest moments that we must focus to see the light." - Aristotle'];
 
-
-function App() {
+const NewComponent = () => {
   const [randomQuote, setRandomQuote] = useState('');
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function App() {
       {/* Party Text */}
       <div className="row party-text">
         <div className="col-12 alx-ihub-party">
-          <h3>one more 4 ALX at ihub</h3>
+          <h3>one more for ALX at ihub</h3>
         </div>
       </div>
 
@@ -76,4 +76,4 @@ function App() {
   );
 };
 
-export default App
+export default NewComponent;
