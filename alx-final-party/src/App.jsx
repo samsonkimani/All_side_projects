@@ -97,7 +97,7 @@ function App() {
         </div>
       </div>
       <div className='ownership'>
-        <p>website by Ihub SE Learners</p>
+        <p>by iHub SE Learners</p>
       </div>
     </div>
   );
