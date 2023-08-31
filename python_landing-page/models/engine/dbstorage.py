@@ -26,15 +26,15 @@ class DBStorage:
     __session = None
 
     def __init__(self):
-        host=os.getenv('HOST')
-        user=os.getenv('NAME')
-        password=os.getenv('PASSWORD')
-        database=os.getenv('DATABASE')
+#        host=os.getenv('HOST')
+#       user=os.getenv('NAME')
+#       password=os.getenv('PASSWORD')
+#       database=os.getenv('DATABASE')
 
-        # host='localhost'
-        # user='root'
-        # database='mediapp'
-        # password='123456'
+        host='localhost'
+        user='root'
+        database='mediapp'
+        password='123456'
 
 
 
@@ -44,19 +44,19 @@ class DBStorage:
         #         }
         # }
         # ca = connection_args['ssl']['ca']
-        # connection = "mysql+mysqldb://{}:{}@{}/{}?ssl_ca={}".format(user, password, host, database, ca)
+        connection = "mysql+mysqldb://{}:{}@{}/{}".format(user, password, host, database)
 
-        connection = MySQLdb.connect(
-        host= os.getenv("HOST"),
-        user=os.getenv("NAME"),
-        passwd= os.getenv("PASSWORD"),
-        db= os.getenv("DATABASE"),
-        autocommit = True,
-        ssl_mode = "VERIFY_IDENTITY",
-        ssl      = {
-            "ca": "/etc/ssl/cert.pem"
-        }
-        )
+        # connection = MySQLdb.connect(
+        # host= os.getenv("HOST"),
+        # user=os.getenv("NAME"),
+        # passwd= os.getenv("PASSWORD"),
+        # db= os.getenv("DATABASE"),
+        # autocommit = True,
+        # ssl_mode = "VERIFY_IDENTITY",
+        # ssl      = {
+        #     "ca": "/etc/ssl/cert.pem"
+        # }
+        # )
 
         self.__engine = create_engine(connection)
 

@@ -34,9 +34,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import text
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'your_database_uri'
@@ -46,17 +44,18 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    username = db.Column(db.String(128), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
 
 @app.route('/login', methods=['POST'])
 def login():
     username = request.json.get("username", None)
-    password = request.json.get("password", None)
+
     try:
+        password = generate_password_hash(request.json.get("password", None))
         # Check if the credentials exist in the database
         username = User.query.filter_by(username=username).first()
-        if username is not None and password == password:
+        if username is not None and password == username.password:
             # Authentication successful
             token = jwt.encode({'username': username}, app.config['SECRET_KEY'])
 
