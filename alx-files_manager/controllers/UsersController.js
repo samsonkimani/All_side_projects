@@ -13,13 +13,17 @@ const UsersController = {
 			return res.status(400).json({ error: 'missing password'} );
 		}
 
+		console.log(email);
+
 		const userExists = await dbClient.client
-			.db()
-			.collection('user')
-			.findOne({ email });
-		if (userExists) {
+		.db()
+		.collection('user')
+		.findOne({ email: email });
+		if (userExists === null) {
+			console.log(userExists);
 			return res.status(400).json( {error: 'Already Exixts' });
 		}
+		console.log(userExists);
 
 		const hashedPassword = crypto
 			.createHash('sha1')
