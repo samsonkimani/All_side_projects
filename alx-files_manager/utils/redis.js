@@ -3,9 +3,9 @@ import { createClient } from 'redis';
 class RedisClient {
 	constructor() {
 		this.client = createClient();
-		
+
 		this.client.on('error', (error) => {
-			console.log('Cannot connect to a redis client', error);
+			console.log('Cannot connect to a redis client ', error);
 		});
 	}
 
@@ -57,4 +57,3 @@ class RedisClient {
 
 const redisClient = new RedisClient();
 export default redisClient;
-

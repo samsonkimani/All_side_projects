@@ -25,11 +25,12 @@ class DBClient {
 	}
 
 	isAlive() {
-		if (this.client&&this.client.isConnected()) {
-			return true;
-		} else {
-			return false;
-		}
+		// if (this.client && this.client.isConnected()) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		return this.client.isConnected();
 	}
 
 	async nbUsers() {
@@ -46,4 +47,3 @@ class DBClient {
 
 const dbClient = new DBClient();
 export default dbClient;
-
